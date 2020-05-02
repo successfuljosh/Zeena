@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:viewmodel="clr-namespace:ZeenaPower.ViewModel"
+             mc:Ignorable="d"
+             x:Class="ZeenaPower.Views.TransactionPage"
+             Title="Transaction History">
+    <ContentPage.BindingContext>
+        <viewmodel:TransactionPageViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="FillAndExpand" Padding="20">
+            <Grid Padding="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Text="Ref Id" TextColor="Black" FontAttributes="Bold" FontSize="Caption"                      
+                               Grid.Row="0" Grid.Column="0"/>
+
+                <Label Text="Meter Id" TextColor="Black" FontAttributes="Bold" FontSize="Caption"                      
+                               Grid.Row="0" Grid.Column="1"/>
+                <Label Text="Tariff" TextColor="Black" FontAttributes="Bold" FontSize="Caption"
+                               Grid.Row="0" Grid.Column="2"/>
+                <Label Text="Amount" TextColor="Black" FontAttributes="Bold" FontSize="Caption"
+                               Grid.Row="0" Grid.Column="3"/>
+                <Label Text="Status" TextColor="Black" FontAttributes="Bold" FontSize="Caption"
+                               Grid.Row="0" Grid.Column="4"/>
+                <Label Text="Date" TextColor="Black" FontAttributes="Bold" FontSize="Caption"
+                               Grid.Row="0" Grid.Column="5"/>
+
+            </Grid>
+            <ListView x:Name="transactionListview" VerticalOptions="FillAndExpand" ItemTapped="transactionListview_ItemTapped"
+                      ItemsSource="{Binding TransactionHistoryList}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="5">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Label Text="{Binding RefId}" TextColor="Black"  FontSize="Caption"                      
+                               Grid.Row="0" Grid.Column="0"/>
+
+                                <Label Text="{Binding Tariff}" TextColor="Black"  FontSize="Caption"                      
+                               Grid.Row="0" Grid.Column="1"/>
+                                <Label Text="{Binding MeterId}" TextColor="Black"  FontSize="Caption"
+                               Grid.Row="0" Grid.Column="2"/>
+                                <Label Text="{Binding Amount}" TextColor="Black"  FontSize="Caption"
+                               Grid.Row="0" Grid.Column="3"/>
+                                <Label Text="{Binding Status}" TextColor="Black"  FontSize="Caption"
+                               Grid.Row="0" Grid.Column="4"/>
+                                <Label Text="{Binding DateTime}" TextColor="Black" FontSize="Caption"
+                               Grid.Row="0" Grid.Column="5"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

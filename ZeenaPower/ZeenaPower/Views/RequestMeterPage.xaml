@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ZeenaPower.Views.RequestMeterPage"
+             NavigationPage.HasBackButton="True"
+             Title="Meter Request">
+    <ContentPage.Content>
+        <ScrollView>
+        <StackLayout VerticalOptions="FillAndExpand" 
+                     HorizontalOptions="FillAndExpand"
+                     Padding="30" Spacing="20"
+                     BackgroundColor="BlanchedAlmond">
+            <Label Text="Request for A Meter" HorizontalOptions="CenterAndExpand"
+                   TextColor="Black" FontAttributes="Bold" FontSize="Large"/>
+            <Entry x:Name="houseNoEntry" Placeholder="House Number" 
+                   TextColor="Black"/>
+            <Editor x:Name="streetEditor" HeightRequest="100" Placeholder="Street Address" 
+                   TextColor="Black"/>
+            <Picker x:Name="lgaPicker" Title="Select LGA"
+                   TextColor="Black"/>
+            <Picker x:Name="tariffPicker" Title="Select Tariff Plan"
+                   TextColor="Black"/>
+            
+            <Button x:Name="createBtn" Text="Create" CornerRadius="10"
+                    FontAttributes="Bold" FontSize="Body"
+                    BackgroundColor="OrangeRed"
+                    Clicked="createBtn_Clicked"/>
+
+        </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

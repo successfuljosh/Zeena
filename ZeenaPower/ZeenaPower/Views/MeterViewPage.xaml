@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ZeenaPower.Views.MeterViewPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="15" Spacing="10">
+                <Frame CornerRadius="10">
+                    <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+                        <Label Text="Status" FontSize="Caption" TextColor="Black"/>
+                        <Switch x:Name="swi" IsToggled="{Binding Meter.connectivity}" HorizontalOptions="EndAndExpand"
+                                Toggled="Switch_Toggled"/>
+                    </StackLayout>
+                </Frame>
+
+                <Frame CornerRadius="10">
+                    <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+                        <Label Text="Current Cost" FontSize="Caption" TextColor="Black"/>
+                        <Label Text="{Binding Meter.current_cost_reading}" FontSize="Caption" TextColor="Black" HorizontalOptions="EndAndExpand"/>
+                    </StackLayout>
+                </Frame>
+                <Frame CornerRadius="10">
+                    <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+                        <Label Text="Current" FontSize="Caption" TextColor="Black"/>
+                        <Label Text="{Binding Meter.current}" FontSize="Caption" TextColor="Black" HorizontalOptions="EndAndExpand"/>
+                    </StackLayout>
+                </Frame>
+                <Frame CornerRadius="10">
+                    <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+                        <Label Text="Power" FontSize="Caption" TextColor="Black"/>
+                        <Label Text="{Binding Meter.power}" FontSize="Caption" TextColor="Black" HorizontalOptions="EndAndExpand"/>
+                    </StackLayout>
+                </Frame>
+
+                <Frame CornerRadius="10">
+                    <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+                        <Label Text="Energy" FontSize="Caption" TextColor="Black"/>
+                        <Label Text="{Binding Meter.energy}" FontSize="Caption" TextColor="Black" HorizontalOptions="EndAndExpand"/>
+                    </StackLayout>
+                </Frame>
+                <Frame CornerRadius="10">
+                    <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+                        <Label Text="Voltage" FontSize="Caption" TextColor="Black"/>
+                        <Label Text="{Binding Meter.voltage}" FontSize="Caption" TextColor="Black" HorizontalOptions="EndAndExpand"/>
+                    </StackLayout>
+                </Frame>
+                <Frame CornerRadius="10">
+                    <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+                        <Label Text="Frequency" FontSize="Caption" TextColor="Black"/>
+                        <Label Text="{Binding Meter.frequency}" FontSize="Caption" TextColor="Black" HorizontalOptions="EndAndExpand"/>
+                    </StackLayout>
+                </Frame>
+                <Frame CornerRadius="10">
+                    <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+                        <Label Text="Cost" FontSize="Caption" TextColor="Black"/>
+                        <Label Text="{Binding Meter.cost}" FontSize="Caption" TextColor="Black" HorizontalOptions="EndAndExpand"/>
+                    </StackLayout>
+                </Frame>
+                <Frame CornerRadius="10">
+                    <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+                        <Label Text="Date Time" FontSize="Caption" TextColor="Black"/>
+                        <Label Text="{Binding Meter.dump_time}" FontSize="Caption" TextColor="Black" HorizontalOptions="EndAndExpand"/>
+                    </StackLayout>
+                </Frame>
+
+                <!--<Frame CornerRadius="10">
+                <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+                    <StackLayout>
+                        <Label x:Name="activeMeterLabel" FontSize="Large"
+                               FontAttributes="Bold"/>
+                        <Label Text="Active Meters" FontSize="Caption" TextColor="Black"/>
+                    </StackLayout>
+                    <ImageButton Source="meter.png" BackgroundColor="BlueViolet"
+                                 HorizontalOptions="EndAndExpand" CornerRadius="8"
+                             HeightRequest="50" WidthRequest="100" Aspect="AspectFit"/>
+                </StackLayout>
+            </Frame>-->
+
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ZeenaPower.Views.LoginPage"
+             BackgroundColor="BlanchedAlmond" NavigationPage.HasNavigationBar="False"
+             NavigationPage.HasBackButton="False">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="CenterAndExpand" 
+                     HorizontalOptions="FillAndExpand"
+                     Padding="30" Spacing="20"
+                     BackgroundColor="BlanchedAlmond">
+            <Image Source="logo.png" HeightRequest="100"/>
+            <Label Text="Zeena Power" HorizontalOptions="CenterAndExpand"
+                   TextColor="Black" FontAttributes="Bold" FontSize="Large"/>
+            <Entry x:Name="usernameEntry" Placeholder="Username" Text="usern4816@gmail.com"
+                   TextColor="Black"/>
+            <Entry x:Name="passwordEntry" Placeholder="Password" Text="123456"
+                   TextColor="Black"
+                   IsPassword="True"/>
+            <ActivityIndicator x:Name="loader" HorizontalOptions="CenterAndExpand"
+                               HeightRequest="20" IsRunning="True" IsVisible="False"/>
+            <Button x:Name="loginBtn" Text="Login" CornerRadius="10"
+                    FontAttributes="Bold" FontSize="Body"
+                    BackgroundColor="OrangeRed"
+                    Clicked="loginBtn_Clicked"/>
+
+            <Label Text="Create Account/Sign Up" HorizontalOptions="CenterAndExpand"
+                   TextColor="Black" FontSize="Caption">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer x:Name="signUpLabel" Tapped="signUpLabel_Tapped"/>
+                </Label.GestureRecognizers>
+            </Label>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
