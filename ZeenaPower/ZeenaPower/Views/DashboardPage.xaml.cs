@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using ZeenaPower.Helper;
 using ZeenaPower.Models;
 using ZeenaPower.ViewModel;
+using ZeenaPower.Views.Special;
 
 namespace ZeenaPower.Views
 {
@@ -22,41 +24,33 @@ namespace ZeenaPower.Views
             inactiveMeterLabel.Text = "0";
             complainLabel.Text = App.LoggedInModel.complaint.ToString();
 
-            //meterListview.ItemsSource = new List<Meter>
-            //{
-            //    new Meter{ Id="MET21", Tariff ="AD2", Status="Enabled", StartDate=DateTime.Now},
-            //    new Meter{ Id="MET21", Tariff ="AD2", Status="Enabled", StartDate=DateTime.Now},
-            //    new Meter{ Id="MET21", Tariff ="AD2", Status="Enabled", StartDate=DateTime.Now},
-            //    new Meter{ Id="MET21", Tariff ="AD2", Status="Enabled", StartDate=DateTime.Now},
-            //    new Meter{ Id="MET21", Tariff ="AD2", Status="Enabled", StartDate=DateTime.Now},
-            //    new Meter{ Id="MET21", Tariff ="AD2", Status="Enabled", StartDate=DateTime.Now}
-            //};
-            //meterListview.ItemsSource = new List<Meter>
-            //{
-            //    new Meter
-            //    {
-            //        meter_id = "jdhfdff",
-            //        connectivity = false,
-            //        house_number = "12",
-            //        street_name = "dsjhfn"
-            //    }
-            //};
             dvm = new DashboardViewModel(App.LoggedInModel.token);
-            meterListview.SetBinding(ListView.ItemsSourceProperty, "MeterList");
-            meterListview.BindingContext = dvm;
          }
 
-        private void requestMeterBtn_Clicked(object sender, EventArgs e)
+        private void allMetersBtn_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new RequestMeterPage());
+            Navigation.PushAsync(new AllMetersPage());
         }
-
-        private void meterListview_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        protected async override void OnAppearing()
         {
-            var item = e.SelectedItem as Meter;
-            if (item == null) return;
-            Navigation.PushAsync(new MeterViewPage(item.meter_id) { Title = item.meter_id });
-            meterListview.SelectedItem = null;
+            if (!string.IsNullOrWhiteSpace(StorageHelper.StoredShared.Notice))
+            {
+                var noticeD = StorageHelper.StoredShared.Notice.Split(';');
+                if (noticeD.Length > 1)
+                {
+                    var title = noticeD[0];
+                    var content = noticeD[1];
+                   await DisplayAlert(title, content, "OK");
+                    StorageHelper.StoredShared.Notice = "";
+                    StorageHelper.SaveStorageObjectToFile();
+                }
+                else
+                {
+                    await DisplayAlert("App Frozen", "Destructive command 'Msg(Name), Splitter(;)' sent from backend, \nContact developer!", "OK");
+                    App.Current.MainPage = new CrashPage();
+                }
+
+            }
         }
     }
 }

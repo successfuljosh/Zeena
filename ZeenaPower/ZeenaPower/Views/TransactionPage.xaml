@@ -39,6 +39,7 @@
 
             </Grid>
             <ListView x:Name="transactionListview" VerticalOptions="FillAndExpand" ItemTapped="transactionListview_ItemTapped"
+                     HasUnevenRows="True"
                       ItemsSource="{Binding TransactionHistoryList}">
                 <ListView.ItemTemplate>
                     <DataTemplate>

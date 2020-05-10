@@ -7,8 +7,8 @@
              x:Class="ZeenaPower.Views.DashboardPage"
              Title="Dashboard">
     <ContentPage.Content>
-        <StackLayout Padding="15,15,15,0" Spacing="10">
-            <Frame CornerRadius="10">
+        <StackLayout Padding="15" Spacing="10">
+            <Frame CornerRadius="10" BorderColor="Gray">
                 <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
                     <StackLayout>
                         <Label x:Name="activeMeterLabel" FontSize="Large"
@@ -20,8 +20,8 @@
                              HeightRequest="50" WidthRequest="100" Aspect="AspectFit"/>
                 </StackLayout>
             </Frame>
-            
-            <Frame CornerRadius="10">
+
+            <Frame CornerRadius="10" BorderColor="Gray">
                 <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
                     <StackLayout>
                         <Label x:Name="inactiveMeterLabel" FontSize="Large"
@@ -34,7 +34,7 @@
                 </StackLayout>
             </Frame>
 
-            <Frame CornerRadius="10">
+            <Frame CornerRadius="10" BorderColor="Gray">
                 <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
                     <StackLayout>
                         <Label x:Name="complainLabel" FontSize="Large"
@@ -47,65 +47,12 @@
                 </StackLayout>
             </Frame>
 
-            <Frame CornerRadius="10" VerticalOptions="FillAndExpand">
-                <StackLayout HorizontalOptions="FillAndExpand" Padding="5">
-                    <Grid Padding="2">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="20"/>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
 
-                        <Label Text=" Meter ID" TextColor="Black" FontAttributes="Bold" FontSize="Caption"
-                               
-                               Grid.Row="0" Grid.Column="0"/>
-                        <Label Text="House No" TextColor="Black" FontAttributes="Bold" FontSize="Caption"
-                               Grid.Row="0" Grid.Column="1"/>
-                        <Label Text="Street Name" TextColor="Black" FontAttributes="Bold" FontSize="Caption"
-                               Grid.Row="0" Grid.Column="2"/>
-                        <Label Text="Status" TextColor="Black" FontAttributes="Bold" FontSize="Caption"
-                               Grid.Row="0" Grid.Column="3"/>
-                    </Grid>
-                    <ListView x:Name="meterListview" VerticalOptions="FillAndExpand" ItemSelected="meterListview_ItemSelected">
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <ViewCell>
-                                    <Grid Padding="2">
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="*"/>
-                                        </Grid.RowDefinitions>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="*"/>
-                                            <ColumnDefinition Width="*"/>
-                                            <ColumnDefinition Width="*"/>
-                                            <ColumnDefinition Width="*"/>
-                                        </Grid.ColumnDefinitions>
-
-                                        <Label Text="{Binding meter_id}" TextColor="Black" FontSize="Caption"
-                               Grid.Row="0" Grid.Column="0"/>
-                                        <Label Text="{Binding house_number}" TextColor="Black"  FontSize="Caption"
-                               Grid.Row="0" Grid.Column="1"/>
-                                        <Label Text="{Binding connectivity}" TextColor="White" BackgroundColor="{Binding status_color}" FontSize="Caption"
-                               Grid.Row="0" Grid.Column="3"/>
-                                        <Label Text="{Binding street_name}" TextColor="Black"  FontSize="Caption"
-                               Grid.Row="0" Grid.Column="2"/>
-                                    </Grid>
-                                </ViewCell>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-                    
-                    <Button x:Name="requestMeterBtn" Text="Request Meter" CornerRadius="10"
+            <Button x:Name="allMetersBtn" Text="All Meters" CornerRadius="10"
                     FontAttributes="Bold" FontSize="Body"
+                    VerticalOptions="EndAndExpand"
                     BackgroundColor="OrangeRed"
-                    Clicked="requestMeterBtn_Clicked"/>
-                </StackLayout>
-            </Frame>
-
+                    Clicked="allMetersBtn_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

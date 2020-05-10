@@ -18,10 +18,11 @@ namespace ZeenaPower.Views
         {
             InitializeComponent();
             userLabel.Text = App.LoggedInModel.user.first_name + " " + App.LoggedInModel.user.last_name;
-            userImg.Source = "logo.png";
+            userImg.Source = "Niklaus.jpg";
             masterListView.ItemsSource = new ObservableCollection<MenuItemModel>
 {
     new MenuItemModel{Id=0,Title="Dashboard", IconSrc="logo.png"},
+        new MenuItemModel{Id=1,Title="All Meters", IconSrc="logo.png"},
     new MenuItemModel{Id=1,Title="Transactions", IconSrc="logo.png"},
         new MenuItemModel{Id=1,Title="Request Meter", IconSrc="meter.png"},
     new MenuItemModel{Id=2,Title="Complaints", IconSrc="complain.png"}
@@ -38,10 +39,13 @@ namespace ZeenaPower.Views
                 case "Dashboard":
                     Detail = new NavigationPage(new DashboardPage());
                     break;
-                case "Transaction":
+                case "All Meters":
+                    Detail = new NavigationPage(new AllMetersPage());
+                    break;
+                case "Transactions":
                     Detail = new NavigationPage(new TransactionPage());
                     break;
-                case "Complain":
+                case "Complaints":
                     Detail = new NavigationPage(new ComplainPage());
                     break;
                 case "Request Meter":

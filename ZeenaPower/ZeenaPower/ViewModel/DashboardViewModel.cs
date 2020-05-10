@@ -69,7 +69,16 @@ namespace ZeenaPower.ViewModel
                 OnPropertyChanged();
             }
         }
-
+        private bool isLoading;
+        public bool IsLoading
+        {
+            get { return isLoading; }
+            set
+            {
+                isLoading = value;
+                OnPropertyChanged();
+            }
+        }
         public DashboardViewModel(string tokenvalue)
         {
             WebService = new Restful();
@@ -84,9 +93,17 @@ namespace ZeenaPower.ViewModel
 
         private async Task LoadDashboardAsync()
         {
-            var m = await WebService.GetAllMeters(token);
-            if (m != null)
-                MeterList = m;
+            IsLoading = true;
+            try
+            {
+                var m = await WebService.GetAllMeters(token);
+                if (m != null)
+                    MeterList = m;
+            }catch(Exception ex)
+            {
+                ZeenaPower.Helper.Shared.LogToConsole("Loading all Meters: " + ex.ToString());
+            }
+            IsLoading = false;
         }
     }
 }

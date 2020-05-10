@@ -5,11 +5,12 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="ZeenaPower.Views.HomeMasterDetailPage"
-             xmlns:pages="clr-namespace:ZeenaPower.Views">
+             xmlns:pages="clr-namespace:ZeenaPower.Views"
+              Visual="Material">
   <MasterDetailPage.Master>
         <ContentPage Title="Menu">
             <ContentPage.Content>
-                <StackLayout Padding="15">
+                <StackLayout Padding="15" Spacing="15">
                     <Frame CornerRadius="30" Padding="10">
                         <StackLayout HorizontalOptions="CenterAndExpand">
                             <Image x:Name="userImg" HeightRequest="100"/>

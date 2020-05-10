@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using ZeenaPower.Helper;
 using ZeenaPower.Services;
 
 namespace ZeenaPower.Views
@@ -32,6 +33,8 @@ namespace ZeenaPower.Views
                 var response = await App.RestfulService.LoginPost(user, pass);
                 if (response.status == "success")
                 {
+                    StorageHelper.StoredShared.LoggedInModel = response;
+                    StorageHelper.SaveStorageObjectToFile();
                     App.LoggedInModel = response;
                     App.Current.MainPage = new HomeMasterDetailPage();
                 }

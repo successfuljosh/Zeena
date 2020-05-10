@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ZeenaPower.Views.AllMetersPage"
+             Title="All Meters">
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="FillAndExpand" Padding="15,10,15,5">
+            <Grid Padding="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Text=" Meter ID" TextColor="Black" FontAttributes="Bold" FontSize="Caption"
+                               
+                               Grid.Row="0" Grid.Column="0"/>
+                <Label Text="House No" TextColor="Black" FontAttributes="Bold" FontSize="Caption"
+                               Grid.Row="0" Grid.Column="1"/>
+                <Label Text="Street Name" TextColor="Black" FontAttributes="Bold" FontSize="Caption"
+                               Grid.Row="0" Grid.Column="2"/>
+                <Label Text="Status" TextColor="Black" FontAttributes="Bold" FontSize="Caption"
+                               Grid.Row="0" Grid.Column="3"/>
+            </Grid>
+            <ListView x:Name="meterListview" VerticalOptions="FillAndExpand" ItemSelected="meterListview_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="2">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Label Text="{Binding meter_id}" TextColor="Black" FontSize="Caption"
+                               Grid.Row="0" Grid.Column="0"/>
+                                <Label Text="{Binding house_number}" TextColor="Black"  FontSize="Caption"
+                               Grid.Row="0" Grid.Column="1"/>
+                                <Label Text="{Binding connectivity}" TextColor="White" BackgroundColor="{Binding status_color}" FontSize="Caption"
+                               Grid.Row="0" Grid.Column="3"/>
+                                <Label Text="{Binding street_name}" TextColor="Black"  FontSize="Caption"
+                               Grid.Row="0" Grid.Column="2"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Button x:Name="requestMeterBtn" Text="Request Meter" CornerRadius="10"
+                    FontAttributes="Bold" FontSize="Body"
+                    BackgroundColor="OrangeRed"
+                    Clicked="requestMeterBtn_Clicked"/>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

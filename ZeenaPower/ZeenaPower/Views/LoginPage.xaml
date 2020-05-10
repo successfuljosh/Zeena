@@ -10,11 +10,16 @@
     <ContentPage.Content>
         <StackLayout VerticalOptions="CenterAndExpand" 
                      HorizontalOptions="FillAndExpand"
-                     Padding="30" Spacing="20"
+                     Padding="30" Spacing="0"
                      BackgroundColor="BlanchedAlmond">
             <Image Source="logo.png" HeightRequest="100"/>
             <Label Text="Zeena Power" HorizontalOptions="CenterAndExpand"
-                   TextColor="Black" FontAttributes="Bold" FontSize="Large"/>
+                   TextColor="Black" FontAttributes="Bold" FontSize="Large"
+                   Margin="0"/>
+            <Label Text="Zeena Power offers a mobile access point to monitor your smart meter on the go."
+                   HorizontalTextAlignment="Center"
+                   TextColor="Black" FontSize="Caption" Margin="0,0,0,20"/>
+            
             <Entry x:Name="usernameEntry" Placeholder="Username" Text="usern4816@gmail.com"
                    TextColor="Black"/>
             <Entry x:Name="passwordEntry" Placeholder="Password" Text="123456"
